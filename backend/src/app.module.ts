@@ -1,10 +1,40 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { Module } from '@nestjs/common'
+import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm'
+import { ConfigModule, ConfigService } from '@nestjs/config'
+import { GraphQLModule } from '@nestjs/graphql'
+
+import { ProductsModule } from './products/products.module'
+import { ApolloDriver } from '@nestjs/apollo'
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+	imports: [
+		ConfigModule.forRoot({ isGlobal: true }),
+		GraphQLModule.forRoot({
+			driver: ApolloDriver,
+			autoSchemaFile: 'schema.gql',
+			sortSchema: true,
+			playground: true,
+		}),
+		TypeOrmModule.forRootAsync({
+			imports: [ConfigModule],
+			inject: [ConfigService],
+			useFactory: async (config: ConfigService) => ({
+				type: config.get<'aurora-data-api'>(
+					'TYPEORM_CONNECTION'
+				) as 'postgres',
+				username: config.get<string>('TYPEORM_USERNAME'),
+				password: config.get<string>('TYPEORM_PASSWORD'),
+				database: config.get<string>('TYPEORM_DATABASE'),
+				port: config.get<number>('TYPEORM_PORT'),
+				entities: [__dirname + 'dist/**/*.entity{.ts,.js}'],
+				synchronize: true,
+				autoLoadEntities: true,
+				logging: true,
+			}),
+		}),
+		ProductsModule,
+	],
+	controllers: [],
+	providers: [],
 })
 export class AppModule {}
