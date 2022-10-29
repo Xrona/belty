@@ -5,6 +5,13 @@ import { GraphQLModule } from '@nestjs/graphql'
 
 import { ProductsModule } from './products/products.module'
 import { ApolloDriver } from '@nestjs/apollo'
+import { UsersModule } from './users/users.module'
+import { AuthModule } from './auth/auth.module'
+import { APP_GUARD } from '@nestjs/core'
+import { CategoriesModule } from './categories/categories.module'
+import { SizesModule } from './sizes/sizes.module'
+import { ColorsModule } from './colors/colors.module'
+import { AccessTokenGuard } from './auth/guards/accessToken.guard'
 
 @Module({
 	imports: [
@@ -33,8 +40,18 @@ import { ApolloDriver } from '@nestjs/apollo'
 			}),
 		}),
 		ProductsModule,
+		AuthModule,
+		UsersModule,
+		CategoriesModule,
+		SizesModule,
+		ColorsModule,
 	],
 	controllers: [],
-	providers: [],
+	providers: [
+		{
+			provide: APP_GUARD,
+			useClass: AccessTokenGuard,
+		},
+	],
 })
 export class AppModule {}
