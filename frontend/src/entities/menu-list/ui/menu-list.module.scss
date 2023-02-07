@@ -1,0 +1,20 @@
+.menuList {
+  @include tablet {
+    position: static;
+    flex-direction: row;
+    padding: 0 13px;
+  }
+
+  display: flex;
+  position: absolute;
+  bottom: -30px;
+  flex-flow: column nowrap;
+  gap: 15px;
+  align-items: center;
+  padding: 15px;
+
+  &.active {
+    top: 147px;
+    bottom: unset;
+  }
+}
