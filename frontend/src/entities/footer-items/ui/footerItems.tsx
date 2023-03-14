@@ -1,14 +1,15 @@
-import { spawn } from 'child_process'
-import { link } from 'fs'
-import { FC, PropsWithChildren } from 'react'
+import clsx from 'clsx'
+import { FC } from 'react'
 import { IFooterItem } from '../types/footerItem'
+import styles from './footerItems.module.scss'
+import {CLink} from '@/shared/ui/link'
 
 export const FooterItems: FC <IFooterItem> = ({title,children})=> {
 	return <div>
 		{title && <h3>{title}</h3>}
-		<ul>
-			{children.map((e,idx)=> <li key={idx}>
-				{e.link ? <a href={e.link}>{e.name}</a> : <span>{e.name}</span>}
+		<ul className={styles.ul}>
+			{children.map((e,idx)=> <li key={idx} className={clsx(styles.li, styles[e.view])} >
+				{e.link ? <CLink href={e.link} name={e.name}/> : <span>{e.name}</span>}
 			</li>)}
 		</ul>
 	</div>
