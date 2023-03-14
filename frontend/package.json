@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "svg": "svgr -d src/shared/ui/icons src/shared/assets/svg"
+    "svg": "svgr -d src/components/ui/icons src/assets/svg"
   },
   "dependencies": {
     "@next/font": "13.1.6",

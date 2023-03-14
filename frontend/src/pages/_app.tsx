@@ -3,6 +3,8 @@ import clsx from 'clsx'
 import {NextPage} from 'next'
 import {AppProps} from 'next/app'
 
+import '@/app/styles/reset.scss'
+
 type AppPropsWithLayout = AppProps & {
 	Component: NextPage
 }

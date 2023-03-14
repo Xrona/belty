@@ -24,10 +24,7 @@ module.exports = {
 	importOrder: [
 		'<THIRD_PARTY_MODULES>',
 		'@/app/(.*)$',
-		'@/widgets/(.*)$',
-		'@/features/(.*)$',
-		'@/entities(.*)$',
-		'@/shared/(.*)$',
+		'@/components/(.*)$',
 		'^../(.*)$',
 		'^./(.*)$',
 		'(.scss)$',

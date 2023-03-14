@@ -1,14 +1,30 @@
-import {Header} from '@/widgets/header/ui/header'
-import Button from '@/shared/ui/button'
-import { Footer } from '@/widgets/footer/ui/footer'
+import {useState} from 'react'
+
+import {Footer} from '@/components/layout/footer'
+import {Header} from '@/components/layout/header'
+import Button from '@/components/ui/button'
+import {Input} from '@/components/ui/input'
 
 const Index = () => {
+	const [name, setName] = useState('')
+
 	return (
 		<div>
-			<Header />
-			<h1>Index page</h1>
-			<Button color='blue60' handleClick={()=>{}} icon='cart' name='Button'/>
-			<Footer/>
+			{/* <Header />
+			<h1>Index page</h1> */}
+			<span>User name</span>
+			<Input
+				placeholder='test'
+				value={name}
+				onInput={e => setName(e.target.value)}
+			/>
+			{/* <Button
+				color='blue60'
+				handleClick={() => {}}
+				icon='cart'
+				name='Button'
+			/>
+			<Footer /> */}
 		</div>
 	)
 }
