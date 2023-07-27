@@ -1,33 +1,33 @@
 import clsx from 'clsx'
-import {FC, ReactNode} from 'react'
-
-import {IconType} from '@/app/types/iconType'
-
-import {CartIcon} from '@/components/ui/icons'
+import {FC, PropsWithChildren} from 'react'
 
 import styles from './button.module.scss'
 
-export interface IButton {
-	name: string
-	color: string
+type TypeProps = {
+	size?: 'md' | 'lg' | 'sm'
+	isStroke?: boolean
+	color?: 'blue' | 'dark-blue' | 'ocean' | 'error' | 'success' | 'warning'
 	disabled?: boolean
-	icon?: IconType
-	handleClick: () => void
 }
 
-const icons = {
-	cart: <CartIcon />,
-}
-export const Button: FC<IButton> = ({name, handleClick, icon = null, color = '', disabled = false}) => {
-	const text: string | ReactNode = icon ? icons[icon] : name
-
+export const Button: FC<PropsWithChildren<TypeProps>> = ({
+	size = 'md',
+	children,
+	isStroke = false,
+	color = 'blue',
+	disabled = false,
+}) => {
 	return (
 		<button
-			className={clsx(styles.btn, icon ? styles.icon : null, styles[color])}
 			disabled={disabled}
-			onClick={handleClick}
+			className={clsx(
+				styles.btn,
+				styles[size],
+				styles[color],
+				isStroke ? styles.outline : styles.fill,
+			)}
 		>
-			{text}
+			{children}
 		</button>
 	)
 }

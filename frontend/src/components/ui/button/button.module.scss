@@ -1,44 +1,107 @@
-.btn{
-  width: 173px;
-  height: 42px;
-	&.blue80{
-	background: $blue80;
-	}
-	&.blue60{
-	background: $blue60;
-	}
-	&.blue40{
-	background: $blue40;
-	}
-	&.gray60{
-	background: $gray60;
-	}
-  border-radius: 2px;
-  border: none;
-  font-family: 'Jura';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  color: #FFFFFF;
-	&:hover{
-		background-color: $blue80;
-	}
-	&:focus{
-		border: 1px solid $blue60;
-	}
-	&:active{
-		background-color: $blue40;
-	}
-	&:disabled{
-		background-color: $gray60;
+@import '@/shared/style/mixins';
+
+.btn {
+	--color: 'transparent';
+	--hover: 'transparent';
+	--active: 'transparent';
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: var(--btn-transition);
+	outline: none;
+	border: none;
+	border-radius: 55px;
+	cursor: pointer;
+	line-height: 12px; /* 100% */
+	color: var(--bg);
+	font-weight: 500;
+	font-style: normal;
+
+	&:disabled {
+		--color: var(--gray-90);
+		--hover: var(--gray-90);
+		--active: var(--gray-90);
 	}
 
-	&.icon {
-		width: 42px;
-		height: 42px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+	&.md {
+		min-width: calc(var(--step) * 29);
+		height: calc(var(--step) * 9);
+		line-height: 12px;
+		font-size: 12px;
+		font-weight: 500;
+	}
+
+	&.lg {
+		min-width: calc(var(--step) * 50);
+		height: calc(var(--step) * 13);
+		line-height: 16px;
+		font-size: 14px;
+		font-weight: 500;
+	}
+
+	&.outline {
+		border: 1px solid;
+		border-color: var(--color);
+		background-color: transparent;
+		color: var(--color);
+
+		&:hover {
+			border-color: var(--hover);
+			color: var(--hover);
+		}
+
+		&:active {
+			border-color: var(--active);
+			color: var(--active);
+		}
+	}
+
+	&.fill {
+		background-color: var(--color);
+
+		&:hover {
+			background-color: var(--hover);
+		}
+
+		&:active {
+			background-color: var(--active);
+		}
+	}
+
+	&.blue {
+		--color: var(--blue-50);
+		--hover: var(--blue-60);
+		--active: var(--blue-50);
+	}
+
+	&.dark-blue {
+		--color: var(--blue-40);
+		--hover: var(--blue-30);
+		--active: var(--blue-40);
+	}
+
+	&.ocean {
+		--color: var(--ocean-30);
+		--hover: var(--ocean-40);
+		--active: var(--ocean-50);
+	}
+
+	&.success {
+		--color: var(--green-50);
+		--hover: var(--green-60);
+		--active: var(--green-40);
+	}
+
+	&.error {
+		--color: var(--red-50);
+		--hover: var(--red-60);
+		--active: var(--red-40);
+	}
+
+	&.warning {
+		--color: var(--orange-50);
+		--hover: var(--orange-60);
+		--active: var(--orange-40);
 	}
 }
