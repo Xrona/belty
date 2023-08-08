@@ -1,0 +1,16 @@
+.container {
+	display: flex;
+	flex-grow: 1;
+}
+
+.filters {
+	position: relative;
+
+	display: flex;
+
+	border-right: 1px solid var(--gray-95);
+}
+
+.content {
+	padding: 10px;
+}

@@ -1,7 +1,10 @@
+import clsx from 'clsx'
 import type {Metadata} from 'next'
 import {Roboto} from 'next/font/google'
 
 import '@/shared/style/global.scss'
+
+import Header from '@/components/header'
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -15,8 +18,13 @@ const roboto = Roboto({
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
 	return (
-		<html lang='en'>
-			<body className={roboto.className}>{children}</body>
+		<html>
+			<body>
+				<div className={clsx(roboto.className, 'wrapper')}>
+					<Header />
+					{children}
+				</div>
+			</body>
 		</html>
 	)
 }

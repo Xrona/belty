@@ -82,9 +82,12 @@ audio,
 video {
 	box-sizing: border-box;
 	margin: 0;
-	border: 0;
 	padding: 0;
+
 	vertical-align: baseline;
+
+	border: 0;
+
 	font: inherit;
 	font-size: 100%;
 }
@@ -122,11 +125,15 @@ blockquote::before,
 blockquote::after,
 q::before,
 q::after {
-	content: '';
 	content: none;
 }
 
 table {
-	border-collapse: collapse;
 	border-spacing: 0;
+
+	border-collapse: collapse;
+}
+
+button {
+	color: inherit;
 }

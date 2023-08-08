@@ -1,5 +1,9 @@
-'use client'
+import Catalog from '@/components/catalog'
 
 export default function Home() {
-	return <main className='test'></main>
+	return (
+		<>
+			<Catalog />
+		</>
+	)
 }

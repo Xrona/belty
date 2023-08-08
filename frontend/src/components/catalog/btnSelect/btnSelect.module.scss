@@ -1,0 +1,55 @@
+.container {
+	display: flex;
+	gap: 1px;
+
+	flex-wrap: wrap;
+
+}
+
+.item {
+	position: relative;
+
+	overflow: hidden;
+
+	cursor: pointer;
+}
+
+
+.title{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	min-width: 40px;
+	height: 40px;
+
+	transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+
+	border: 1px solid var(--gray-95);
+	border-radius: 3px;
+	background-color: var(--gray-99);
+
+	&:hover {
+		transform: scale(1.2);
+	}
+}
+
+.input {
+	position: absolute;
+
+	width: 0;
+	height: 0;
+
+	opacity: 0;
+	
+	&:checked + .title {
+		border-color: transparent;
+		background-color: white;
+		box-shadow: 2px 2px 4px 0 rgba(29, 36, 43, 20%) inset,
+			-3px -3px 0 0 rgba(255, 255, 255, 10%) inset;
+
+		&:hover {
+			transform: unset;
+		}
+	}
+}

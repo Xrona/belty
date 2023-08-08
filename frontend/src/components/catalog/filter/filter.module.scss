@@ -1,0 +1,25 @@
+@import "@/shared/style/mixins";
+
+.container {
+	position: sticky;
+	top: 46px;
+
+	height: fit-content;
+
+	@include responsive-value('width', 300, 150);
+}
+
+
+.filters {
+	> div:not(:last-child) {
+		margin-bottom: 12px;
+	}
+}
+
+.slider, .sizes{
+	padding: 4px 10px;
+
+	.label {
+		margin-bottom: 16px;
+	}
+}

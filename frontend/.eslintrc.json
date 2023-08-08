@@ -11,7 +11,7 @@
     "semi": ["error", "never"],
     "quotes": ["error", "single"],
     "linebreak-style": ["error", "unix"],
-    "arrow-parens": ["error", "always"],
+    "arrow-parens": ["error", "as-needed"],
     "react/react-in-jsx-scope": "off",
     "react/jsx-sort-props": [
       "error",
