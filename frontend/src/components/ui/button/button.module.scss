@@ -8,15 +8,18 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	cursor: pointer;
 	transition: var(--btn-transition);
-	outline: none;
+
+	color: var(--bg);
 	border: none;
 	border-radius: 55px;
-	cursor: pointer;
-	line-height: 12px; /* 100% */
-	color: var(--bg);
+	outline: none;
+
 	font-weight: 500;
 	font-style: normal;
+	line-height: 12px; /* 100% */
 
 	&:disabled {
 		--color: var(--gray-90);
@@ -27,33 +30,35 @@
 	&.md {
 		min-width: calc(var(--step) * 29);
 		height: calc(var(--step) * 9);
-		line-height: 12px;
+
 		font-size: 12px;
 		font-weight: 500;
+		line-height: 12px;
 	}
 
 	&.lg {
 		min-width: calc(var(--step) * 50);
 		height: calc(var(--step) * 13);
-		line-height: 16px;
+
 		font-size: 14px;
 		font-weight: 500;
+		line-height: 16px;
 	}
 
 	&.outline {
+		color: var(--color);
 		border: 1px solid;
 		border-color: var(--color);
 		background-color: transparent;
-		color: var(--color);
 
 		&:hover {
-			border-color: var(--hover);
 			color: var(--hover);
+			border-color: var(--hover);
 		}
 
 		&:active {
-			border-color: var(--active);
 			color: var(--active);
+			border-color: var(--active);
 		}
 	}
 
